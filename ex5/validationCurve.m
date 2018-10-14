@@ -40,19 +40,18 @@ error_val = zeros(length(lambda_vec), 1);
 %
 
 for i = 1:length(lambda_vec)
+	
+	%Train linear regression using the dataset (X, y) and regularization parameter lambda.
 	[theta] = trainLinearReg(X,y,lambda_vec(i));
+	
+	%Compute train / val errors,lambda should be zero
 	J_train = linearRegCostFunction(X,y,theta,0);
 	J_val = linearRegCostFunction(Xval,yval,theta,0);
+	
+	%Store the results in error_train and error_val
 	error_train(i) = J_train;
 	error_val(i) = J_val;
 end
-
-
-
-
-
-
-
 
 % =========================================================================
 
